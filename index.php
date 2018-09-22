@@ -1,9 +1,8 @@
 <html>
 	<head>
-	<title>First Page</title>
+		<title>Welcome!</title>
 	</head>
-
 	<body>
-	Hello World
+		Hello World
 	</body>
 </html>
