@@ -31,7 +31,7 @@ body {
     color: #D5D5D5;
 }
 
-.nav a.currentpage {
+#currentpage .nav a {
     background-color: #112D32;
     color: white;
 }
