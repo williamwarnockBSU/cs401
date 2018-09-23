@@ -1,0 +1,46 @@
+body {
+    font-family: "Lato", sans-serif;
+    background-color: #D5D5D5;
+}
+
+#navList {
+    list-style: none;
+}
+
+.nav {
+    height: 100%;
+    width: 250PX;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #88BDBC;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.nav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #4F4A41;
+    display: block;
+}
+
+.nav a:hover {
+    color: #D5D5D5;
+}
+
+.nav a.active {
+    background-color: #112D32;
+    color: white;
+}
+
+.main {
+    margin-left: 250px; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+}
+
+.footer {
+    font-size: 8px;
+}
