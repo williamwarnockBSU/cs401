@@ -17,6 +17,7 @@ body {
     background-color: #88BDBC;
     overflow-x: hidden;
     padding-top: 20px;
+    box-shadow: 5px 0 5px 0 rgba(0,0,0,0.2);
 }
 
 .nav a {
@@ -32,13 +33,27 @@ body {
 }
 
 .nav a.currentpage {
-    background-color: #112D32;
-    color: white;
+    background-color: #D5D5D5;
+    color: #4F4A41;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
 }
 
 .main {
     margin-left: 250px; /* Same as the width of the sidenav */
     padding: 0px 10px;
+}
+
+#card {
+    margin-left: 10px;
+    background-color: #F7F9FB;
+    box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+#logout {
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
 }
 
 .footer {

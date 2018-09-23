@@ -1,13 +1,16 @@
 <?php $thisPage="tripsBoard"; ?>
 <html>
 	<head>
-	<link href="website.css" type="text/css" rel="stylesheet" />
+		<link href="website.css" type="text/css" rel="stylesheet" />
 		<title>Trips Board</title>
 	</head>
 	<body>
 		<?php require_once "nav.php"; ?>
 		<div class="main">
-			Trips
+		<?php require_once "logoutButton.php"; ?>
+			<div id="card">
+                <h1>Trips Board</h1>
+            </div>
 		</div>
 	</body>
 </html>
