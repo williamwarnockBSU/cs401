@@ -1,3 +1,4 @@
+<?php $thisPage="plannedTrips"; ?>
 <html>
 	<head>
 	<link href="website.css" type="text/css" rel="stylesheet" />
