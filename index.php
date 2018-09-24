@@ -13,7 +13,7 @@
 		<div class="main">
 			<div id="card">
 				<h1>Please Login</h1>
-				<form>
+				<form id="login">
 					Username:<br>
 					<input type="text" name="username"></br>
 					Password:<br>

@@ -38,6 +38,29 @@ body {
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
 }
 
+.messageNav {
+    width: 250PX;
+    background-color: #88BDBC;
+    box-shadow: 5px 0 5px 0 rgba(0,0,0,0.2);
+}
+
+.messageNav a {
+    padding: 8px 8px;
+    text-decoration: none;
+    color: #4F4A41;
+    display: block;
+}
+
+.messageNav a:hover {
+    color: #D5D5D5;
+}
+
+.messageNav a.currentpage {
+    background-color: #D5D5D5;
+    color: #4F4A41;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
+}
+
 .main {
     margin-left: 250px; /* Same as the width of the sidenav */
     padding: 0px 10px;
@@ -45,12 +68,10 @@ body {
 
 #card {
     margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
     background-color: #F7F9FB;
     box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.2);
-}
-
-#card p {
-    margin-left: 15px;
 }
 
 #card h1 {
@@ -58,6 +79,9 @@ body {
 }
 
 #card h3 {
+    text-align: center;
+}
+#card #login {
     text-align: center;
 }
 

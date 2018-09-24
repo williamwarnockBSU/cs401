@@ -11,6 +11,38 @@
 			<div id="card">
                 <h1>Messages</h1>
 			</div>
+			<div id="card">
+				<div class="messageNav">
+					<ul id="navList">
+						<li><a href="tripsBoard.php">Write Message</a></li>
+        				<li><a class="currentPage" href="mainPage.php">Inbox</a></li>
+        				<li><a href="plannedTrips.php">New Messages</a></li>
+        				<li><a href="messages.php">Trash</a></li>
+					</ul>
+				</div>
+				<table>
+						<tr>
+							<th>Sender</th>
+							<th>Message</th>
+							<th>Date</th>
+						</tr>
+						<tr>
+							<td>User1</td>
+							<td>Hello!!</td>
+							<td>9/12/18</td>
+						</tr>
+						<tr>
+							<td>User1</td>
+							<td>Hello!!</td>
+							<td>9/12/18</td>
+						</tr>
+						<tr>
+							<td>User1</td>
+							<td>Hello!!</td>
+							<td>9/12/18</td>
+						</tr>
+					</table>
+			</div>
 			<?php require_once "footer.php"; ?>
 		</div>
 	</body>
