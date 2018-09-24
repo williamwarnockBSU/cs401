@@ -21,6 +21,7 @@
 					<button type="button" onclick="location.href='mainPage.php'">Login</button>
 				</form>
 			</div>
+			<?php require_once "footer.php"; ?>
 		</div>
 	</body>
 </html>

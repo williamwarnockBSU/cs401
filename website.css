@@ -47,6 +47,17 @@ body {
     margin-left: 10px;
     background-color: #F7F9FB;
     box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.2);
+}
+
+#card p {
+    margin-left: 15px;
+}
+
+#card h1 {
+    text-align: center;
+}
+
+#card h3 {
     text-align: center;
 }
 
@@ -56,6 +67,10 @@ body {
     align-items:center;
 }
 
-.footer {
-    font-size: 8px;
+#footer {
+    font-size: 12px;
+    margin-left: 10px;
+    background-color: #F7F9FB;
+    box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.2);
+    text-align: center;
 }

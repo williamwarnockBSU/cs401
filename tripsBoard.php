@@ -10,7 +10,8 @@
 		<?php require_once "logoutButton.php"; ?>
 			<div id="card">
                 <h1>Trips Board</h1>
-            </div>
+			</div>
+			<?php require_once "footer.php"; ?>
 		</div>
 	</body>
 </html>
