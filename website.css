@@ -39,16 +39,24 @@ body {
 }
 
 .messageNav {
-    width: 250PX;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     background-color: #88BDBC;
     box-shadow: 5px 0 5px 0 rgba(0,0,0,0.2);
 }
 
+.messageNav li {
+    float: left;
+}
+
 .messageNav a {
-    padding: 8px 8px;
-    text-decoration: none;
-    color: #4F4A41;
     display: block;
+    color: #4F4A41;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 .messageNav a:hover {
@@ -63,7 +71,6 @@ body {
 
 .main {
     margin-left: 250px; /* Same as the width of the sidenav */
-    padding: 0px 10px;
 }
 
 #card {
@@ -73,6 +80,20 @@ body {
     background-color: #F7F9FB;
     box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.2);
 }
+
+#messagesTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#messagesTable td, #messagesTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#messagesTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#messagesTable tr:hover {background-color: #ddd;}
 
 #card h1 {
     text-align: center;

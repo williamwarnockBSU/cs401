@@ -20,7 +20,7 @@
         				<li><a href="messages.php">Trash</a></li>
 					</ul>
 				</div>
-				<table>
+				<table id="messagesTable">
 						<tr>
 							<th>Sender</th>
 							<th>Message</th>
@@ -31,17 +31,16 @@
 							<td>Hello!!</td>
 							<td>9/12/18</td>
 						</tr>
-						<tr>
-							<td>User1</td>
-							<td>Hello!!</td>
-							<td>9/12/18</td>
-						</tr>
-						<tr>
-							<td>User1</td>
-							<td>Hello!!</td>
-							<td>9/12/18</td>
-						</tr>
-					</table>
+						<?php
+							for ($x = 1; $x <= 50; $x++) {
+								echo "<tr>
+								<td>User1</td>
+								<td>Hello!!</td>
+								<td>9/12/18</td>
+							</tr>";
+							}
+						?>
+				</table>
 			</div>
 			<?php require_once "footer.php"; ?>
 		</div>
