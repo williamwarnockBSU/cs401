@@ -15,9 +15,9 @@
 				<div class="messageNav">
 					<ul id="navList">
 						<li><a href="writeMessage.php">Write Message</a></li>
-        				<li><a class="currentPage" href="messages.php">Inbox</a></li>
+        				<li><a href="messages.php">Inbox</a></li>
         				<li><a href="newMessages.php">New Messages</a></li>
-        				<li><a href="trash.php">Trash</a></li>
+        				<li><a class="currentPage" href="trash.php">Trash</a></li>
 					</ul>
 				</div>
 				<table id="messagesTable">
