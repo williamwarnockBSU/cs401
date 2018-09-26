@@ -6,6 +6,7 @@
 	</head>
 	<body>
 		<div class="nav">
+		<img src="carLogo.png" alt="Trulli" width="250" height="200">
     		<ul id="navList">
         		<li><a<?php if ($thisPage=="index") echo " class=\"currentpage\""; ?> href="index.php">Main Page</a></li>
     		</ul>
