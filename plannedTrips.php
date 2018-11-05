@@ -7,7 +7,12 @@
     if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
         header('Location: index.php');
         exit;
-    }
+	}
+	
+	require_once 'plannedTripsDAO.php';
+	$dao = new plannedTripsDAO();
+	$login = "user2";
+	$plannedTrips = $dao->getUserTrips($login);  
 ?>
 <html>
 	<head>
@@ -22,16 +27,31 @@
                 <h1>Planned Trips</h1>
             </div>
 			<?php
-				for ($x = 1; $x <= 7; $x++) {
+				$num = 1;
+				foreach ($plannedTrips as $trip) {
+					$user = $trip['user2'];
+					$tripNum = $trip['tripID'];
+
+					$tripInfo = $dao->getTripInfo ($tripNum);
+
+					foreach ($tripInfo as $oneInfo) {
+						$startLocation= $oneInfo['startLocation'];
+						$endLocation = $oneInfo['endLocation'];
+						$startDate = $oneInfo['startDate'];
+						$endDate = $oneInfo['endDate'];
+					}
+
 					echo "
-						<div id=\"card\">
-						<h3>Trip $x</h3>
-						<p>From (location) to (location)</p>
-						<p>Dates: 11/2/18 - 11/10/18</p>
-						<p>With (User), (User2), (User3), etc. . .</p>
-						<p><a href=\"messages.php\">Message Group</a>
-						</div>";
-				}
+					<div id=\"card\">
+					<h3>Trip $num</h3>
+					<p>From $startLocation to $endLocation</p>
+					<p>Start Date: $startDate</p>
+					<p>End Date: $endDate</p>
+					<p>With $user</p>
+					<p><a href=\"messages.php\">Message Group</a>
+					</div>";
+					$num++;
+  				}
 			?>
 			<?php require_once "footer.php"; ?>
 		</div>
