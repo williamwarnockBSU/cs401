@@ -1,4 +1,10 @@
+<?php
+	session_start();
+	$message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
+	unset($_SESSION['message']);
+?>
 <?php $thisPage="index"; ?>
+
 <html>
 	<head>
 		<link href="website.css" type="text/css" rel="stylesheet" />
@@ -14,13 +20,22 @@
 		<div class="main">
 			<div id="card">
 				<h1>Please Login</h1>
-				<form id="login">
+				<!--<form id="login">
 					Username:<br>
 					<input type="text" name="username"></br>
 					Password:<br>
 					<input type="text" name="password"></br>
 					<button type="button" onclick="location.href='mainPage.php'">Login</button>
+				</form>-->
+
+				<form id="login" method="post" action="login_handler.php">
+					Username:<br>
+					<input type="text" id="login" name="login"><br>
+					Password:<br>
+		  			<input type="password" id="password" name="password"><br>
+					<input type="submit" value="Submit">
 				</form>
+
 			</div>
 			<?php require_once "footer.php"; ?>
 		</div>

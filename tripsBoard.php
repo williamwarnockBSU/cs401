@@ -1,4 +1,12 @@
-<?php $thisPage="tripsBoard"; ?>
+<?php $thisPage="tripsBoard"; 
+session_start();
+
+//echo "<pre>" . print_r($_SESSION,1) . "</pre>";
+
+if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+  header('Location: http://cs401/comments/login.php');
+  exit;
+?>
 <html>
 	<head>
 		<link href="website.css" type="text/css" rel="stylesheet" />

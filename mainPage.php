@@ -1,4 +1,12 @@
-<?php $thisPage="mainPage"; ?>
+<?php $thisPage="mainPage"; 
+session_start();
+
+//echo "<pre>" . print_r($_SESSION,1) . "</pre>";
+
+if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+  header('Location: http://cs401/comments/login.php');
+  exit;
+?>
 <html>
 	<head>
         <link rel="icon" type="image/x-icon" href="favicon.ico"/>
