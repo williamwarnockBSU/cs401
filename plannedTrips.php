@@ -11,7 +11,7 @@
 	
 	require_once 'plannedTripsDAO.php';
 	$dao = new plannedTripsDAO();
-	$login = "user2";
+	$login = $_SESSION['username'];
 	$plannedTrips = $dao->getUserTrips($login);  
 ?>
 <html>
