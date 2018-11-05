@@ -1,12 +1,15 @@
-<?php $thisPage="mainPage"; 
-session_start();
+<?php 
+    $thisPage="mainPage"; 
+    session_start();
 
-//echo "<pre>" . print_r($_SESSION,1) . "</pre>";
+    echo "<pre>" . print_r($_SESSION,1) . "</pre>";
 
-if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
-  header('Location: http://cs401/comments/login.php');
-  exit;
+    if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+        header('Location: index.php');
+        exit;
+    }
 ?>
+
 <html>
 	<head>
         <link rel="icon" type="image/x-icon" href="favicon.ico"/>

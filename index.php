@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	//echo "<pre>" . print_r($_SESSION,1) . "</pre>";
 	$message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
 	unset($_SESSION['message']);
 ?>
@@ -20,13 +21,11 @@
 		<div class="main">
 			<div id="card">
 				<h1>Please Login</h1>
-				<!--<form id="login">
-					Username:<br>
-					<input type="text" name="username"></br>
-					Password:<br>
-					<input type="text" name="password"></br>
-					<button type="button" onclick="location.href='mainPage.php'">Login</button>
-				</form>-->
+				
+				<?php if(!empty($message)) { ?>
+					<div id="message"><?php echo $message; ?></div><?php 
+					} 
+				?>
 
 				<form id="login" method="post" action="login_handler.php">
 					Username:<br>
