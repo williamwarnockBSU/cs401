@@ -7,7 +7,11 @@
     if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
         header('Location: index.php');
         exit;
-    }
+	}
+	$login = $_SESSION['username'];
+	require_once 'messagesDAO.php';
+	$dao = new messagesDAO();
+	$allMessages = $dao->getTrash ($login);
 ?>
 <html>
 	<head>
@@ -36,20 +40,21 @@
 							<th>Message</th>
 							<th>Date</th>
 						</tr>
-						<tr>
-							<td>User1</td>
-							<td>Hello!!</td>
-							<td>9/12/18</td>
-						</tr>
 						<?php
-							for ($x = 1; $x <= 50; $x++) {
-								echo "<tr>
-								<td>User1</td>
-								<td>Hello!!</td>
-								<td>9/12/18</td>
-							</tr>";
-							}
-						?>
+                    		foreach ($allMessages as $message) {
+								$sender = $message['sender'];
+								$messageText = $message['messageText'];
+								$dateSent = $message['dateSent'];
+
+								echo "
+									<tr>
+										<td>$sender</td>
+										<td>$messageText</td>
+										<td>$dateSent</td>
+									</tr>
+								";
+                    		}
+                		?>
 				</table>
 			</div>
 			<?php require_once "footer.php"; ?>

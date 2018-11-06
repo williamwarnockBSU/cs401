@@ -26,4 +26,20 @@ class plannedTripsDAO {
     return $conn->query("select * from trips where tripID = \"". trim($tripNum) ."\";", PDO::FETCH_ASSOC);
   }
 
+  public function getNumTrips ($user) {
+    $conn = $this->getConnection();
+    return $conn->query("select count(*) from (select tripID from usertrips where user1 = \"". trim($user) ."\") as x;", PDO::FETCH_ASSOC);
+  }
+
+  public function getNextTrip ($user) {
+    $conn = $this->getConnection();
+    return $conn->query("select usertrips.tripID, trips.startDate, trips.endDate
+    from 
+      usertrips
+    left join 
+      trips on usertrips.tripID = trips.tripID
+    where
+      usertrips.user1 = \"". trim($user) ."\";", PDO::FETCH_ASSOC);
+  }
+
 }

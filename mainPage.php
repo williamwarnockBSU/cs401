@@ -8,6 +8,16 @@
         header('Location: index.php');
         exit;
     }
+
+    require_once 'plannedTripsDAO.php';
+	$dao = new plannedTripsDAO();
+	$login = $_SESSION['username'];
+    $numPlannedTrips = $dao->getNumTrips ($login);
+    $nextTrip = $dao->getNextTrip ($login);
+
+    require_once 'messagesDAO.php';
+    $daoMessages = new messagesDAO();
+    $numMessages = $daoMessages->numMessages ($login);
 ?>
 
 <html>
@@ -24,12 +34,31 @@
                 <h1>Main Page</h1>
             </div>
             <div id="card">
-                <h3>You have 7 planned trips</h3>
-                <p>Your next trip is on 11/2/18 with (User), (User2), (User3), etc. . .</p>
+                <?php
+                    foreach ($numPlannedTrips as $info) {
+						$num = $info['count(*)'];
+                    }
+                    echo "<h3>You have $num planned trips</h3>";
+
+                    if($num == 0) {
+                        echo "<p>No trips!</p>";
+                    }else {
+                        foreach ($nextTrip as $trip) {
+                            $startDate = $trip['startDate'];
+                            $endDate = $trip['endDate'];
+                        }
+                        echo "<p>Next trip starts on $startDate and ends on $endDate</p>";
+                    }
+                ?>
             </div>
             <div id="card">
-                <h3>You have 1 new message</h3>
-                <p>(Some type of message preview with link to the message)</p>
+                
+                <?php
+                    foreach ($numMessages as $messageInfo) {
+						$mNum = $messageInfo['count(*)'];
+                    }
+                    echo "<h3>You have $mNum messages</h3>";
+                ?>
             </div>
             <div id="card">
                 <h3>Calendar</h3>
