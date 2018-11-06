@@ -30,27 +30,13 @@
         				<li><a href="trash.php">Trash</a></li>
 					</ul>
 				</div>
-				<table id="messagesTable">
-						<tr>
-							<th>Sender</th>
-							<th>Message</th>
-							<th>Date</th>
-						</tr>
-						<tr>
-							<td>User1</td>
-							<td>Hello!!</td>
-							<td>9/12/18</td>
-						</tr>
-						<?php
-							for ($x = 1; $x <= 50; $x++) {
-								echo "<tr>
-								<td>User1</td>
-								<td>Hello!!</td>
-								<td>9/12/18</td>
-							</tr>";
-							}
-						?>
-				</table>
+				<br>
+				<form method="post" action="writeMessageHandler.php" id="usrform">
+  					To: <input type="text" id="to" name="to">
+  					<input type="submit" value="Send">
+				</form>
+				<br>
+				<textarea rows="20" cols="80" name="message" form="usrform"></textarea>
 			</div>
 			<?php require_once "footer.php"; ?>
 		</div>

@@ -35,4 +35,21 @@ class messagesDAO {
     return $conn->query("select * from messages where sender = \"". trim($user) ."\" and trash != 1;", PDO::FETCH_ASSOC);
   }
 
+  public function createMessage ($fromUser, $toUser, $message) {
+    $conn = $this->getConnection();
+    $date = date('Y-m-d');
+
+    $saveQuery =
+        "INSERT INTO messages
+        (sender, receiver, messageText, dateSent, trash)
+        VALUES
+        (:fromUser, :toUser, :message, :date, FALSE)";
+    $q = $conn->prepare($saveQuery);
+    $q->bindParam(":fromUser", $fromUser);
+    $q->bindParam(":toUser", $toUser);
+    $q->bindParam(":message", $message);
+    $q->bindParam(":date", $date);
+    $q->execute();
+  }
+
 }
