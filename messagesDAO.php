@@ -30,4 +30,9 @@ class messagesDAO {
     return $conn->query("select count(*) from (select * from messages where receiver = \"". trim($user) ."\" and trash != 1) as x;", PDO::FETCH_ASSOC);
   }
 
+  public function getSentMessages ($user) {
+    $conn = $this->getConnection();
+    return $conn->query("select * from messages where sender = \"". trim($user) ."\" and trash != 1;", PDO::FETCH_ASSOC);
+  }
+
 }

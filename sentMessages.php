@@ -7,7 +7,11 @@
     if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
         header('Location: index.php');
         exit;
-    }
+	}
+	$login = $_SESSION['username'];
+	require_once 'messagesDAO.php';
+	$dao = new messagesDAO();
+	$allMessages = $dao->getSentMessages ($login);
 ?>
 <html>
 	<head>
@@ -26,30 +30,31 @@
 					<ul id="navList">
 						<li><a href="writeMessage.php">Write Message</a></li>
         				<li><a href="messages.php">Inbox</a></li>
-        				<li><a class="currentPage" href="newMessages.php">New Messages</a></li>
+        				<li><a class="currentPage" href="sentMessages.php">Sent Messages</a></li>
         				<li><a href="trash.php">Trash</a></li>
 					</ul>
 				</div>
 				<table id="messagesTable">
 						<tr>
-							<th>Sender</th>
+							<th>Receiver</th>
 							<th>Message</th>
 							<th>Date</th>
 						</tr>
-						<tr>
-							<td>User1</td>
-							<td>Hello!!</td>
-							<td>9/12/18</td>
-						</tr>
 						<?php
-							for ($x = 1; $x <= 50; $x++) {
-								echo "<tr>
-								<td>User1</td>
-								<td>Hello!!</td>
-								<td>9/12/18</td>
-							</tr>";
-							}
-						?>
+                    		foreach ($allMessages as $message) {
+								$receiver = $message['receiver'];
+								$messageText = $message['messageText'];
+								$dateSent = $message['dateSent'];
+
+								echo "
+									<tr>
+										<td>$receiver</td>
+										<td>$messageText</td>
+										<td>$dateSent</td>
+									</tr>
+								";
+                    		}
+                		?>
 				</table>
 			</div>
 			<?php require_once "footer.php"; ?>

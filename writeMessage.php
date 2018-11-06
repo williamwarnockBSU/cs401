@@ -26,7 +26,7 @@
 					<ul id="navList">
 						<li><a class="currentPage" href="writeMessage.php">Write Message</a></li>
         				<li><a href="messages.php">Inbox</a></li>
-        				<li><a href="newMessages.php">New Messages</a></li>
+        				<li><a href="sentMessages.php">Sent Messages</a></li>
         				<li><a href="trash.php">Trash</a></li>
 					</ul>
 				</div>
