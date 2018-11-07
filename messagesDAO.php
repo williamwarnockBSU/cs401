@@ -52,4 +52,9 @@ class messagesDAO {
     $q->execute();
   }
 
+  public function getUsersList () {
+    $conn = $this->getConnection();
+    return $conn->query("select userEmail from users;", PDO::FETCH_ASSOC);
+  }
+
 }

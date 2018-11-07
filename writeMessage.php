@@ -7,7 +7,10 @@
     if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
         header('Location: index.php');
         exit;
-    }
+	}
+	require_once 'messagesDAO.php';
+    $daoMessages = new messagesDAO();
+    $userList = $daoMessages->getUsersList ();
 ?>
 <html>
 	<head>
@@ -32,7 +35,15 @@
 				</div>
 				<br>
 				<form method="post" action="writeMessageHandler.php" id="usrform">
-  					To: <input type="text" id="to" name="to">
+					  To:
+					<select name="to">
+						<?php
+                    		foreach ($userList as $user) {
+								$email = $user['userEmail'];
+								echo "<option value=\"$email\">$email</option>";
+                    		}
+                		?>
+					</select>
   					<input type="submit" value="Send">
 				</form>
 				<br>

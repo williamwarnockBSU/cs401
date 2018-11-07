@@ -21,4 +21,18 @@ class loginDAO {
     return $conn->query("select count(*) from (select userEmail, userPassword from users where userEmail = \"". trim($userName) ."\" and userPassword = \"". trim($password) ."\") as x;", PDO::FETCH_ASSOC);
   }
 
+  public function createUser ($login, $password) {
+    $conn = $this->getConnection();
+
+    $saveQuery =
+        "INSERT INTO users
+        (userEmail, userPassword)
+        VALUES
+        (:login, :password)";
+    $q = $conn->prepare($saveQuery);
+    $q->bindParam(":login", $login);
+    $q->bindParam(":password", $password);
+    $q->execute();
+  }
+
 }

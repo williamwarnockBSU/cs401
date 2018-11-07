@@ -48,7 +48,7 @@
 					<p>Start Date: $startDate</p>
 					<p>End Date: $endDate</p>
 					<p>With $user</p>
-					<p><a href=\"messages.php\">Message Group</a>
+					<p><a href=\"writeMessage.php\">Message User</a>
 					</div>";
 					$num++;
   				}

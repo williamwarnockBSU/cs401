@@ -99,10 +99,15 @@ body {
     text-align: center;
 }
 
-#card h3 {
+#card h3,h4 {
     text-align: center;
 }
+
 #card #login {
+    text-align: center;
+}
+
+#card #newUser {
     text-align: center;
 }
 

@@ -36,6 +36,17 @@
 				</form>
 
 			</div>
+			<div id="card">
+				<h4>New User? Sign Up!</h4>
+
+				<form id="newUser" method="post" action="newUserHandler.php">
+					Username:<br>
+					<input type="text" name="username"><br>
+					Password:<br>
+		  			<input type="password" name="userpassword"><br>
+					<input type="submit" value="Submit">
+				</form>
+			</div>
 			<?php require_once "footer.php"; ?>
 		</div>
 	</body>

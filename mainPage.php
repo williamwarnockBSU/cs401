@@ -60,10 +60,12 @@
                     echo "<h3>You have $mNum messages</h3>";
                 ?>
             </div>
+            <!--
             <div id="card">
                 <h3>Calendar</h3>
                 <p>Find some way to put calendar here with the trips on it ¯\_(ツ)_/¯</p>
             </div>
+            -->
             <?php require_once "footer.php"; ?>
 		</div>
 	</body>
