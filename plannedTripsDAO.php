@@ -18,7 +18,7 @@ class plannedTripsDAO {
 
   public function getUserTrips ($userName) {
     $conn = $this->getConnection();
-    return $conn->query("select * from usertrips where user1 = \"". trim($userName) ."\";", PDO::FETCH_ASSOC);
+    return $conn->query("select * from trips where user1 = \"". trim($userName) ."\" or user2 = \"". trim($userName) ."\";", PDO::FETCH_ASSOC);
   }
 
   public function getTripInfo ($tripNum) {
@@ -28,18 +28,80 @@ class plannedTripsDAO {
 
   public function getNumTrips ($user) {
     $conn = $this->getConnection();
-    return $conn->query("select count(*) from (select tripID from usertrips where user1 = \"". trim($user) ."\") as x;", PDO::FETCH_ASSOC);
+    return $conn->query("select count(*) from (select tripID from trips where user1 = \"". trim($user) ."\" or user2 = \"". trim($user) ."\") as x;", PDO::FETCH_ASSOC);
   }
 
   public function getNextTrip ($user) {
     $conn = $this->getConnection();
-    return $conn->query("select usertrips.tripID, trips.startDate, trips.endDate
+    return $conn->query("select *
     from 
-      usertrips
-    left join 
-      trips on usertrips.tripID = trips.tripID
+      trips
     where
-      usertrips.user1 = \"". trim($user) ."\";", PDO::FETCH_ASSOC);
+      user1 = \"". trim($user) ."\" or user2 = \"". trim($user) ."\";", PDO::FETCH_ASSOC);
+  }
+
+  public function listTripsNotFull ($user) {
+    $conn = $this->getConnection();
+    return $conn->query("select *
+    from 
+      trips
+    where
+      user2 is NULL and user1 != \"". trim($user) ."\";", PDO::FETCH_ASSOC);
+  }
+
+  // public function createTrip ($user, $startLocation, $endLocation, $startDate, $endDate) {
+  //   $conn = $this->getConnection();
+    
+  //   $saveQuery =
+  //       "INSERT INTO trips
+  //       (startLocation, endLocation, startDate, endDate, user1)
+  //       VALUES
+  //       (:startLocation, :endLocation, :startDate, :endDate, :user);";
+
+  //   $q = $conn->prepare($saveQuery);
+  //   $q->bindParam(":user", $user);
+  //   $q->bindParam(":startLocation", $startLocation);
+  //   $q->bindParam(":endLocation", $endLocation);
+  //   $q->bindParam(":startDate", $startDate);
+  //   $q->bindParam(":endDate", $endDate);
+  //   echo "$q";
+  //   $q->execute();
+
+  // }
+
+  public function createTrip($user, $startLocation, $endLocation, $startDate, $endDate) {
+    $conn = $this->getConnection();
+
+    $saveQuery = 
+    "INSERT INTO trips
+    (startLocation, endLocation, startDate, endDate, user1)
+    VALUES
+    (:startLocation, :endLocation, :startDate, :endDate, :user);";
+
+    $q = $conn->prepare($saveQuery);
+    $q->bindParam(":user", $user);
+    $q->bindParam(":startLocation", $startLocation);
+    $q->bindParam(":endLocation", $endLocation);
+    $q->bindParam(":startDate", $startDate);
+    $q->bindParam(":endDate", $endDate);
+
+    $q->execute();
+  }
+
+  public function joinTrip ($id, $tripID) {
+    $conn = $this->getConnection();
+
+    $saveQuery = 
+    "UPDATE trips
+    SET user2 = :id
+    WHERE tripID = :tripID;";
+
+    $q = $conn->prepare($saveQuery);
+    $q->bindParam(":id", $id);
+    $q->bindParam(":tripID", $tripID);
+
+    $q->execute();
+
   }
 
 }

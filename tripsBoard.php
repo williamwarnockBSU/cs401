@@ -7,7 +7,12 @@
     if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
         header('Location: index.php');
         exit;
-    }
+	}
+
+	require_once 'plannedTripsDAO.php';
+	$dao = new plannedTripsDAO();
+	$login = $_SESSION['username'];
+    $tripsNotFull = $dao->listTripsNotFull ($login);
 ?>
 <html>
 	<head>
@@ -22,38 +27,54 @@
                 <h1>Trips Board</h1>
 			</div>
 			<div id="card">
-				<form id="login">
+                <h3>Create a Trip</h3>
+				<form id="createTrip" method="post" action="createTripHandler.php">
 					Start Location:
-					<input type="text" name="startLocation">
+					<input type="text" name="createStartLocation">
 					Destination:
-					<input type="text" name="password">
-					<button type="button" onclick="">Search</button>
+					<input type="text" name="createDestination">
+					Start Date:
+					<input type="text" name="createstartDate">
+					End Date:
+					<input type="text" name="createEndDate">
+					<input type="submit" value="Create">
 				</form>
 			</div>
 			<div id="card">
+				<h3>Find a Trip</h3>
+				<!--<form id="findTrip" method="post" action="findTripHandler.php">
+					Start Location:
+					<input type="text" name="findStartLocation">
+					Destination:
+					<input type="text" name="findDestination">
+					<button type="button" onclick="">Search</button>
+				</form>-->
 				<table id="tripsTable">
 					<tr>
 						<th>Start Location</th>
 						<th>Destination</th>
-						<th>Users</th>
+						<th>User</th>
 						<th>Date</th>
-					</tr>
-					<tr>
-						<td>Here</td>
-						<td>There</td>
-						<td>User1542</td>
-						<td>12/12/18</td>
+						<th>Join</th>
 					</tr>
 					<?php
-						for ($x = 1; $x <= 34; $x++) {
-							echo "<tr>
-							<td>Here</td>
-							<td>There</td>
-							<td>User1542</td>
-							<td>12/12/18</td>
-						</tr>";
-						}
-					?>
+                    		foreach ($tripsNotFull as $trip) {
+								$startLocation = $trip['startLocation'];
+								$endLocation = $trip['endLocation'];
+								$user = $trip['user1'];
+								$startDate = $trip['startDate'];
+
+								echo "
+									<tr>
+										<td>$startLocation</td>
+										<td>$endLocation</td>
+										<td>$user</td>
+										<td>$startDate</td>
+										<td><a href='joinTrip.php?id={$login}&tripNum={$trip['tripID']}'/>X</a></td>
+									</tr>
+								";
+                    		}
+                		?>
 				</table>
 			</div>
 			<?php require_once "footer.php"; ?>
