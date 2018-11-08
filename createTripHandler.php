@@ -5,11 +5,13 @@
   $dao = new plannedTripsDAO();
 
   $user = $_SESSION['username'];
-  $starLocation = $_POST['createStartLocation'];
+  $startLocation = $_POST['createStartLocation'];
   $endLocation = $_POST['createDestination'];
   $startDate = $_POST['createstartDate'];
   $endDate = $_POST['createEndDate'];
 
+  echo "$startDate : $endDate";
+
   $dao->createTrip($user, $startLocation, $endLocation, $startDate, $endDate);
 
-  header('Location: tripsBoard.php');
+  //header('Location: tripsBoard.php');

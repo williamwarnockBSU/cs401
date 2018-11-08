@@ -34,9 +34,9 @@
 					Destination:
 					<input type="text" name="createDestination">
 					Start Date:
-					<input type="text" name="createstartDate">
+					<input type="date" name="createstartDate">
 					End Date:
-					<input type="text" name="createEndDate">
+					<input type="date" name="createEndDate">
 					<input type="submit" value="Create">
 				</form>
 			</div>
