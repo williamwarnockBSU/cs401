@@ -39,18 +39,21 @@
 							<th>Sender</th>
 							<th>Message</th>
 							<th>Date</th>
+							<th>Delete?</th>
 						</tr>
 						<?php
                     		foreach ($allMessages as $message) {
 								$sender = $message['sender'];
 								$messageText = $message['messageText'];
 								$dateSent = $message['dateSent'];
+								$messageID = $message['messageID'];
 
 								echo "
 									<tr>
 										<td>$sender</td>
 										<td>$messageText</td>
 										<td>$dateSent</td>
+										<td><a href='deleteMessage.php?id={$messageID}'/>X</a></td>
 									</tr>
 								";
                     		}

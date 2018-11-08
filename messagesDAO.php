@@ -57,4 +57,19 @@ class messagesDAO {
     return $conn->query("select userEmail from users;", PDO::FETCH_ASSOC);
   }
 
+  public function deleteMessage ($id) {
+    $conn = $this->getConnection();
+
+    $saveQuery = 
+    "UPDATE messages
+    SET trash = 1
+    WHERE messageID = :id;";
+
+    $q = $conn->prepare($saveQuery);
+    $q->bindParam(":id", $id);
+
+    $q->execute();
+
+  }
+
 }
