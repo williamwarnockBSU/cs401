@@ -8,9 +8,13 @@
   $password = $_POST['userpassword'];
 
   $pattern='/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
-
   $success = preg_match($pattern, $login);
-  if ($success) {
+
+  if ($password == "") {
+    $_SESSION['logged_in'] = false;
+    $_SESSION['message'] = "Please type in password";
+    header('Location: index.php');
+  } elseif ($success) {
     $dao->createUser($login, $password);
 
     $_SESSION['logged_in'] = false;
