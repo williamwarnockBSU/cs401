@@ -7,9 +7,17 @@
   $login = $_POST['username'];
   $password = $_POST['userpassword'];
 
-  $dao->createUser($login, $password);
+  $pattern='/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
 
-  $_SESSION['logged_in'] = false;
-  $_SESSION['message'] = "User Added";
-  header('Location: index.php');
-  exit;
+  $success = preg_match($pattern, $login);
+  if ($success) {
+    $dao->createUser($login, $password);
+
+    $_SESSION['logged_in'] = false;
+    $_SESSION['message'] = "User Added";
+    header('Location: index.php');
+	} else {
+    $_SESSION['logged_in'] = false;
+    $_SESSION['message'] = "Please type in a valid email";
+    header('Location: index.php');
+  }
