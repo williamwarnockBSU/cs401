@@ -14,4 +14,4 @@
 
   $dao->createTrip($user, $startLocation, $endLocation, $startDate, $endDate);
 
-  //header('Location: tripsBoard.php');
+  header('Location: tripsBoard.php');
