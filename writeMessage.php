@@ -44,7 +44,7 @@
                     		}
                 		?>
 					</select>
-  					<input type="submit" value="Send">
+  					<input class="button" type="submit" value="Send">
 				</form>
 				<br>
 				<textarea rows="20" cols="80" name="message" form="usrform"></textarea>

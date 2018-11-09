@@ -32,7 +32,7 @@
 					<input type="text" id="login" name="login"><br>
 					Password:<br>
 		  			<input type="password" id="password" name="password"><br>
-					<input type="submit" value="Submit">
+					<input class="button" type="submit" value="Submit">
 				</form>
 
 			</div>
@@ -44,7 +44,7 @@
 					<input type="text" name="username"><br>
 					Password:<br>
 		  			<input type="password" name="userpassword"><br>
-					<input type="submit" value="Submit">
+					<input class="button" type="submit" value="Submit">
 				</form>
 			</div>
 			<?php require_once "footer.php"; ?>

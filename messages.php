@@ -53,7 +53,7 @@
 										<td>$sender</td>
 										<td>$messageText</td>
 										<td>$dateSent</td>
-										<td><a href='deleteMessage.php?id={$messageID}'/>X</a></td>
+										<td><a class=\"button\" href='deleteMessage.php?id={$messageID}'/>Delete</a></td>
 									</tr>
 								";
                     		}

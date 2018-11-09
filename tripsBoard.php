@@ -37,7 +37,7 @@
 					<input type="date" name="createstartDate">
 					End Date:
 					<input type="date" name="createEndDate">
-					<input type="submit" value="Create">
+					<input class="button" type="submit" value="Create">
 				</form>
 			</div>
 			<div id="card">
@@ -70,7 +70,7 @@
 										<td>$endLocation</td>
 										<td>$user</td>
 										<td>$startDate</td>
-										<td><a href='joinTrip.php?id={$login}&tripNum={$trip['tripID']}'/>X</a></td>
+										<td><a class=\"button\" href='joinTrip.php?id={$login}&tripNum={$trip['tripID']}'/>Join</a></td>
 									</tr>
 								";
                     		}
