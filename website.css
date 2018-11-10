@@ -5,7 +5,7 @@ body {
 
 .button {
     background-color: #88BDBC;
-    border: none;
+    border: 2px solid #88BDBC;
     color: #4F4A41;
     padding: 5px 22px;
     text-align: center;
@@ -16,6 +16,12 @@ body {
     cursor: pointer;
     border-radius: 8px;
     box-shadow: 5px 0 5px 0 rgba(0,0,0,0.2);
+}
+
+.button:hover {
+    background-color: white;
+    color: #4F4A41;
+    border: 2px solid #88BDBC;
 }
 
 #navList {
