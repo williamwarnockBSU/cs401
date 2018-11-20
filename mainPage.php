@@ -45,7 +45,7 @@
                             $startDate = $trip['startDate'];
                             $endDate = $trip['endDate'];
                         }
-                        echo "<p>Next trip starts on $startDate and ends on $endDate</p>";
+                        echo "<p>Next trip starts on " . htmlspecialchars($startDate) . " and ends on " . htmlspecialchars($endDate) . "</p>";
                     }
                 ?>
             </div>

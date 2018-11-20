@@ -43,11 +43,11 @@
 
 					echo "
 					<div id=\"card\">
-					<h3>Trip $num</h3>
-					<p>From $startLocation to $endLocation</p>
-					<p>Start Date: $startDate</p>
-					<p>End Date: $endDate</p>
-					<p>With $user</p>
+					<h3>Trip " . htmlspecialchars($num) . "</h3>
+					<p>From " . htmlspecialchars($startLocation) . " to " . htmlspecialchars($endLocation) . "</p>
+					<p>Start Date: " . htmlspecialchars($startDate) . "</p>
+					<p>End Date: " . htmlspecialchars($endDate) . "</p>
+					<p>With " . htmlspecialchars($user) . "</p>
 					<p><a href=\"writeMessage.php\">Message User</a>
 					</div>";
 					$num++;

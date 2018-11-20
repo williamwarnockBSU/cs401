@@ -48,9 +48,9 @@
 
 								echo "
 									<tr>
-										<td>$receiver</td>
-										<td>$messageText</td>
-										<td>$dateSent</td>
+										<td>" . htmlspecialchars($receiver) . "</td>
+										<td>" . htmlspecialchars($messageText) . "</td>
+										<td>" . htmlspecialchars($dateSent) . "</td>
 									</tr>
 								";
                     		}

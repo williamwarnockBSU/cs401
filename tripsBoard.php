@@ -66,10 +66,10 @@
 
 								echo "
 									<tr>
-										<td>$startLocation</td>
-										<td>$endLocation</td>
-										<td>$user</td>
-										<td>$startDate</td>
+										<td>" . htmlspecialchars($startLocation) . "</td>
+										<td>" . htmlspecialchars($endLocation) . "</td>
+										<td>" . htmlspecialchars($user) . "</td>
+										<td>" . htmlspecialchars($startDate) . "</td>
 										<td><a class=\"button\" href='joinTrip.php?id={$login}&tripNum={$trip['tripID']}'/>Join</a></td>
 									</tr>
 								";
