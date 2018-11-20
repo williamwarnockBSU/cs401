@@ -7,7 +7,10 @@
   $login = $_POST['login'];
   $password = $_POST['password'];
 
-  $userExists = $dao->getUser($login, $password);
+  $hash = md5($password . $login);
+
+  //$userExists = $dao->getUser($login, $password);
+  $userExists = $dao->getUser($login, $hash);
 
   foreach ($userExists as $user) {
     if ($user['count(*)'] != 0) {

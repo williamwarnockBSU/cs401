@@ -15,7 +15,10 @@
     $_SESSION['message'] = "Please type in password";
     header('Location: index.php');
   } elseif ($success) {
-    $dao->createUser($login, $password);
+    $hash = md5($password . $login);
+
+    //$dao->createUser($login, $password);
+    $dao->createUser($login, $hash);
 
     $_SESSION['logged_in'] = false;
     $_SESSION['message'] = "User Added";
