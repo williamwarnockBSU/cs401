@@ -7,9 +7,7 @@
   $login = $_POST['login'];
   $password = $_POST['password'];
 
-  $hash = md5($password . $login);
-
-  //$userExists = $dao->getUser($login, $password);
+  $hash = hash("SHA256", $password . $login);
   $userExists = $dao->getUser($login, $hash);
 
   foreach ($userExists as $user) {

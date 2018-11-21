@@ -35,4 +35,9 @@ class loginDAO {
     $q->execute();
   }
 
+  public function checkForUser ($userName) {
+    $conn = $this->getConnection();
+    return $conn->query("select count(*) from (select userEmail from users where userEmail = \"". trim($userName) ."\") as x;", PDO::FETCH_ASSOC);
+  }
+
 }
