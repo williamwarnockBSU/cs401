@@ -9,6 +9,8 @@
 <html>
 	<head>
 		<link href="website.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="jquery-3.3.1.js"></script>
+		<script type="text/javascript" src="index.js"></script>
 		<title>Welcome!</title>
 	</head>
 	<body>
@@ -38,6 +40,8 @@
 			</div>
 			<div id="card">
 				<h4>New User? Sign Up!</h4>
+
+				<button class="button" type="button" id="formButton">Toggle Form!</button>
 
 				<form id="newUser" method="post" action="newUserHandler.php">
 					Username:<br>
