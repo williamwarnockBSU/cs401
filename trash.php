@@ -15,6 +15,7 @@
 ?>
 <html>
 	<head>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
 		<link href="website.css" type="text/css" rel="stylesheet" />
 		<title>Messages</title>
 	</head>

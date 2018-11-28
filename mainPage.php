@@ -20,6 +20,7 @@
 
 <html>
 	<head>
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
         <link rel="icon" type="image/x-icon" href="favicon.ico"/>
 	    <link href="website.css" type="text/css" rel="stylesheet" />
         <title>Main Page</title>
