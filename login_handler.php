@@ -7,11 +7,12 @@
   $login = $_POST['login'];
   $password = $_POST['password'];
 
-  $hash = hash("SHA256", $password . $login);
+  //$hash = hash("SHA256", $password . $login);
+  $hash = password_hash($password, PASSWORD_DEFAULT);
   $userExists = $dao->getUser($login, $hash);
 
   foreach ($userExists as $user) {
-    if ($user['count(*)'] != 0) {
+    if(password_verify($password, $user['userPassword'])) {
       $_SESSION['username'] = $login;
       $_SESSION['logged_in'] = true;
       header('Location: mainPage.php');

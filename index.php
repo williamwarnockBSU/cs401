@@ -30,10 +30,10 @@
 					} 
 				?>
 
-				<form id="login" method="post" action="login_handler.php">
-					Username:<br>
+				<form method="post" action="login_handler.php">
+					<label for="login">Username:</label><br>
 					<input type="text" id="login" name="login"><br>
-					Password:<br>
+					<label for="password">Password:</label><br>
 		  			<input type="password" id="password" name="password"><br>
 					<input class="button" type="submit" value="Submit">
 				</form>
@@ -45,10 +45,10 @@
 				<button class="button" type="button" id="formButton">Add User!</button>
 
 				<form id="newUser" method="post" action="newUserHandler.php">
-					Username:<br>
-					<input type="text" name="username"><br>
-					Password:<br>
-		  			<input type="password" name="userpassword"><br>
+					<label for="username">Username:</label><br>
+					<input type="text" name="username" id="username"><br>
+					<label for="userpassword">Password:</label><br>
+		  			<input type="password" name="userpassword" id="userpassword"><br>
 					<input class="button" type="submit" value="Submit">
 				</form>
 			</div>

@@ -30,10 +30,10 @@
 			<div id="card">
                 <h3>Create a Trip</h3>
 				<form id="createTrip" method="post" action="createTripHandler.php">
-					Start Location:
-					<input type="text" name="createStartLocation">
-					Destination:
-					<input type="text" name="createDestination">
+					<label for="createStartLocation">Start Location:</label>
+					<input type="text" name="createStartLocation" id="createStartLocation">
+					<label for="createDestination">Destination:</label>
+					<input type="text" name="createDestination" id="createDestination">
 					Start Date:
 					<input type="date" name="createstartDate">
 					End Date:

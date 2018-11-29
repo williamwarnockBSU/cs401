@@ -18,7 +18,7 @@ class loginDAO {
 
   public function getUser ($userName, $password) {
     $conn = $this->getConnection();
-    return $conn->query("select count(*) from (select userEmail, userPassword from users where userEmail = \"". trim($userName) ."\" and userPassword = \"". trim($password) ."\") as x;", PDO::FETCH_ASSOC);
+    return $conn->query("select userPassword from users where userEmail = \"". trim($userName) ."\";", PDO::FETCH_ASSOC);
   }
 
   public function createUser ($login, $password) {

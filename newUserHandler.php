@@ -16,7 +16,8 @@
     $_SESSION['message'] = "Please type in password";
     header('Location: index.php');
   } elseif ($success) {
-    $hash = hash("SHA256",$password . $login);
+    //$hash = hash("SHA256",$password . $login);
+    $hash = password_hash($password, PASSWORD_DEFAULT);
 
     //Check to see if user exists first
     $userExists = $dao->checkForUser($login);
