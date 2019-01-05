@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS Users (
+    userEmail VARCHAR(255) NOT NULL PRIMARY KEY,
+    userPassword VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Trips (
+    tripID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    startLocation VARCHAR(255) NOT NULL,
+    endLocation VARCHAR(255) NOT NULL,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL,
+    user1 VARCHAR(255) NOT NULL,
+    user2 VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS Messages (
+    messageID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    sender VARCHAR(255) NOT NULL,
+    receiver VARCHAR(255) NOT NULL,
+    messageText TEXT NOT NULL,
+    dateSent DATE NOT NULL,
+    trash BOOL NOT NULL,
+    FOREIGN KEY (sender) REFERENCES Users(userEmail),
+    FOREIGN KEY (receiver) REFERENCES Users(userEmail)
+);
